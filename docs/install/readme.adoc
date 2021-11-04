@@ -1,0 +1,11 @@
+
+= kubernetes install
+
+[source, shell script]
+----
+
+# install
+minikube version
+minikube start
+
+----
