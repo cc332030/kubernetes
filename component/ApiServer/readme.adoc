@@ -1,0 +1,7 @@
+
+= Api Server
+
+只有 Api Server 能访问 etcd
+
+Mutating：变形，对请求做处理，比如：新增时多加点数据
+Validating：验证请求是否成功
