@@ -1,6 +1,33 @@
 
 = kubernetes install
 
+https://kubernetes.io/zh-cn/docs/tasks/tools/install-kubectl-linux
+
+[source,shell]
+----
+
+mkdir -p program/kubectl
+cd program/kubectl
+
+# 安装
+curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+chmod +x kubectl
+mv kubectl /usr/local/bin
+
+# 添加自动完成
+kubectl completion bash | sudo tee /etc/bash_completion.d/kubectl > /dev/null
+sudo chmod a+r /etc/bash_completion.d/kubectl
+
+# 安装 kind
+# For AMD64 / x86_64
+[ $(uname -m) = x86_64 ] && curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.22.0/kind-linux-amd64
+# For ARM64
+[ $(uname -m) = aarch64 ] && curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.22.0/kind-linux-arm64
+chmod +x ./kind
+sudo mv ./kind /usr/local/bin/kind
+
+----
+
 [source, shell script]
 ----
 
